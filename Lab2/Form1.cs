@@ -28,7 +28,7 @@ namespace Lab2
         Graphics _graphics;
         private int _BitmapWidth;
         private int _BitmapHeight;
-        private string _path_to_image_dir = "\\Image";
+        private string _path_to_image = "../../image/ФРУКТЫ.jpg";
 
         public Form1()
         {
@@ -52,7 +52,7 @@ namespace Lab2
         {
             _curTask = TaskInProcess.NoTask3;
             ClearPanel();
-            Bitmap bitmap = new Bitmap("../../image/ФРУКТЫ.jpg");
+            Bitmap bitmap = new Bitmap(_path_to_image);
             _BitmapWidth = bitmap.Width / 3;
             _BitmapHeight = bitmap.Height / 3;
             bitmap = new Bitmap(bitmap, _BitmapWidth, _BitmapHeight);
