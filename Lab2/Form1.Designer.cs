@@ -32,7 +32,7 @@
             this.MainGroupBox = new System.Windows.Forms.GroupBox();
             this.Button_Task1 = new System.Windows.Forms.Button();
             this.Button_Task2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Button_Task3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,15 +50,16 @@
             // 
             // MainPanel
             // 
+            this.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MainPanel.Location = new System.Drawing.Point(270, 12);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(900, 500);
+            this.MainPanel.Size = new System.Drawing.Size(1200, 829);
             this.MainPanel.TabIndex = 0;
             // 
             // MainGroupBox
             // 
             this.MainGroupBox.Controls.Add(this.groupBox1);
-            this.MainGroupBox.Controls.Add(this.button1);
+            this.MainGroupBox.Controls.Add(this.SaveButton);
             this.MainGroupBox.Controls.Add(this.Button_Task2);
             this.MainGroupBox.Controls.Add(this.Button_Task1);
             this.MainGroupBox.Location = new System.Drawing.Point(12, 12);
@@ -76,6 +77,7 @@
             this.Button_Task1.TabIndex = 0;
             this.Button_Task1.Text = "Задание#1   RGB -> Оттенки серого";
             this.Button_Task1.UseVisualStyleBackColor = true;
+            this.Button_Task1.Click += new System.EventHandler(this.Button_Task1_Click);
             // 
             // Button_Task2
             // 
@@ -85,15 +87,17 @@
             this.Button_Task2.TabIndex = 1;
             this.Button_Task2.Text = "Задание#2   RGB -> R,G,B";
             this.Button_Task2.UseVisualStyleBackColor = true;
+            this.Button_Task2.Click += new System.EventHandler(this.Button_Task2_Click);
             // 
-            // button1
+            // SaveButton
             // 
-            this.button1.Location = new System.Drawing.Point(10, 427);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(239, 64);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Сохранить изображение";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SaveButton.Location = new System.Drawing.Point(13, 421);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(239, 64);
+            this.SaveButton.TabIndex = 3;
+            this.SaveButton.Text = "Сохранить изображение";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // groupBox1
             // 
@@ -119,6 +123,7 @@
             this.Button_Task3.TabIndex = 3;
             this.Button_Task3.Text = "Задание#3   RGB -> HSV";
             this.Button_Task3.UseVisualStyleBackColor = true;
+            this.Button_Task3.Click += new System.EventHandler(this.Button_Task3_Click);
             // 
             // label1
             // 
@@ -135,6 +140,7 @@
             this.H_trackBar.Name = "H_trackBar";
             this.H_trackBar.Size = new System.Drawing.Size(236, 56);
             this.H_trackBar.TabIndex = 5;
+            this.H_trackBar.Scroll += new System.EventHandler(this.H_trackBar_Scroll);
             // 
             // S_trackBar
             // 
@@ -142,6 +148,7 @@
             this.S_trackBar.Name = "S_trackBar";
             this.S_trackBar.Size = new System.Drawing.Size(236, 56);
             this.S_trackBar.TabIndex = 7;
+            this.S_trackBar.Scroll += new System.EventHandler(this.S_trackBar_Scroll);
             // 
             // label2
             // 
@@ -158,6 +165,7 @@
             this.V_trackBar.Name = "V_trackBar";
             this.V_trackBar.Size = new System.Drawing.Size(236, 56);
             this.V_trackBar.TabIndex = 9;
+            this.V_trackBar.Scroll += new System.EventHandler(this.V_trackBar_Scroll);
             // 
             // label3
             // 
@@ -172,10 +180,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 523);
+            this.ClientSize = new System.Drawing.Size(1582, 853);
             this.Controls.Add(this.MainGroupBox);
             this.Controls.Add(this.MainPanel);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.MainGroupBox.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -191,7 +200,7 @@
 
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.GroupBox MainGroupBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button Button_Task2;
         private System.Windows.Forms.Button Button_Task1;
         private System.Windows.Forms.GroupBox groupBox1;
