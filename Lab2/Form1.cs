@@ -19,9 +19,6 @@ namespace Lab2
      */
     public partial class Form1 : Form
     {
-        //Перечисление, чтобы ползунки и сохранение работало только в случае исполнения 3 задания
-        enum TaskInProcess { NoTask3, Task3 };
-        TaskInProcess _curTask = TaskInProcess.NoTask3;
         /// <summary>
         /// Элемент управления отрисовкой на MainPanel
         /// </summary>
@@ -34,6 +31,7 @@ namespace Lab2
         {
             InitializeComponent();
             _graphics = MainPanel.CreateGraphics();
+            
         }
 
         private void Draw4Images(Graphics g, Bitmap b1, Bitmap b2, Bitmap b3, Bitmap b4)
@@ -50,8 +48,7 @@ namespace Lab2
         //Построить гистограммы интенсивности после одного и второго преобразования.
         private void Button_Task1_Click(object sender, EventArgs e)
         {
-            _curTask = TaskInProcess.NoTask3;
-            ClearPanel();
+            _graphics.Clear(Color.White);
             Bitmap bitmap = new Bitmap(_path_to_image);
             _BitmapWidth = bitmap.Width / 3;
             _BitmapHeight = bitmap.Height / 3;
@@ -121,44 +118,14 @@ namespace Lab2
 
         private void Button_Task2_Click(object sender, EventArgs e)
         {
-            _curTask = TaskInProcess.NoTask3;
-            ClearPanel();
-            //ToDo Task2 (KsevenCh)
+            Form2 f2 = new Form2();
+            f2.Show();
         }
 
         private void Button_Task3_Click(object sender, EventArgs e)
         {
-            _curTask = TaskInProcess.Task3;
-            ClearPanel();
-            //ToDo Task3 (Xienn)
-        }
-
-        private void H_trackBar_Scroll(object sender, EventArgs e)
-        {
-            //ToDo Hue (Xienn)
-        }
-
-        private void S_trackBar_Scroll(object sender, EventArgs e)
-        {
-            //ToDo Saturation (Xienn)
-        }
-
-        private void V_trackBar_Scroll(object sender, EventArgs e)
-        {
-            //ToDo V (Value?) (Xienn)
-        }
-
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            if (_curTask == TaskInProcess.Task3)
-            {
-                //ToDo сохранение для 3 задания (Xienn)
-            }
-        }
-
-        private void ClearPanel()
-        {
-            _graphics.Clear(Color.White);
+            Form3 f3 = new Form3();
+            f3.Show();
         }
     }
 }
