@@ -35,16 +35,18 @@
             // MainPanel
             // 
             this.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MainPanel.Location = new System.Drawing.Point(295, 12);
+            this.MainPanel.Location = new System.Drawing.Point(221, 10);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1200, 829);
+            this.MainPanel.Size = new System.Drawing.Size(900, 674);
             this.MainPanel.TabIndex = 1;
             // 
             // Button_Task2
             // 
-            this.Button_Task2.Location = new System.Drawing.Point(12, 16);
+            this.Button_Task2.Location = new System.Drawing.Point(20, 13);
+            this.Button_Task2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Button_Task2.Name = "Button_Task2";
-            this.Button_Task2.Size = new System.Drawing.Size(239, 53);
+            this.Button_Task2.Size = new System.Drawing.Size(179, 43);
             this.Button_Task2.TabIndex = 2;
             this.Button_Task2.Text = "Задание#2   RGB -> R,G,B";
             this.Button_Task2.UseVisualStyleBackColor = true;
@@ -52,11 +54,12 @@
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1582, 853);
+            this.ClientSize = new System.Drawing.Size(1186, 693);
             this.Controls.Add(this.Button_Task2);
             this.Controls.Add(this.MainPanel);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
