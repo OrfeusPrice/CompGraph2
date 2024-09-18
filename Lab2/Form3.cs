@@ -119,37 +119,7 @@ namespace Lab2
             bitmap.Save("../../image/result.jpg");
         }
 
-        private void H_trackBar_MouseCaptureChanged(object sender, EventArgs e)
-        {
-            int delta = H_trackBar.Value - H;
-            for (int x = 0; x < _BitmapWidth; x++)
-                for (int y = 0; y < _BitmapHeight; y++)
-                {
-                    H_bm[x, y] = (H_bm[x, y] + delta < 360) ? H_bm[x, y] + delta : H_bm[x,y] + delta - 360;
-                }
-            H = H_trackBar.Value;
-
-            _graphics.Clear(Color.White);
-            HSV_To_RGB(bitmap);
-            _graphics.DrawImage(bitmap, (MainPanel.Height - _BitmapHeight) / 2, (MainPanel.Width - _BitmapWidth) / 2);
-        }
-
-        private void S_trackBar_MouseCaptureChanged(object sender, EventArgs e)
-        {
-            double delta = (S_trackBar.Value - S) / 100d;
-            for (int x = 0; x < S_bm.GetLength(0); x++)
-                for (int y = 0; y < S_bm.GetLength(1); y++)
-                {
-                    S_bm[x, y] = Math.Min(1, Math.Max(S_bm[x,y] + delta, 0d));
-                }
-            S = S_trackBar.Value;
-
-            _graphics.Clear(Color.White);
-            HSV_To_RGB(bitmap);
-            _graphics.DrawImage(bitmap, (MainPanel.Height - _BitmapHeight) / 2, (MainPanel.Width - _BitmapWidth) / 2);
-        }
-
-        private void V_trackBar_MouseCaptureChanged(object sender, EventArgs e)
+        private void V_trackBar_Scroll(object sender, EventArgs e)
         {
             double delta = (V_trackBar.Value - V) / 100d;
             for (int x = 0; x < V_bm.GetLength(0); x++)
@@ -159,14 +129,39 @@ namespace Lab2
                 }
             V = V_trackBar.Value;
 
-            _graphics.Clear(Color.White);
+            //_graphics.Clear(Color.White);
             HSV_To_RGB(bitmap);
             _graphics.DrawImage(bitmap, (MainPanel.Height - _BitmapHeight) / 2, (MainPanel.Width - _BitmapWidth) / 2);
         }
 
-        private void V_trackBar_Scroll(object sender, EventArgs e)
+        private void H_trackBar_Scroll(object sender, EventArgs e)
         {
+            int delta = H_trackBar.Value - H;
+            for (int x = 0; x < _BitmapWidth; x++)
+                for (int y = 0; y < _BitmapHeight; y++)
+                {
+                    H_bm[x, y] = (H_bm[x, y] + delta < 360) ? H_bm[x, y] + delta : H_bm[x, y] + delta - 360;
+                }
+            H = H_trackBar.Value;
 
+            //_graphics.Clear(Color.White);
+            HSV_To_RGB(bitmap);
+            _graphics.DrawImage(bitmap, (MainPanel.Height - _BitmapHeight) / 2, (MainPanel.Width - _BitmapWidth) / 2);
+        }
+
+        private void S_trackBar_Scroll(object sender, EventArgs e)
+        {
+            double delta = (S_trackBar.Value - S) / 100d;
+            for (int x = 0; x < S_bm.GetLength(0); x++)
+                for (int y = 0; y < S_bm.GetLength(1); y++)
+                {
+                    S_bm[x, y] = Math.Min(1, Math.Max(S_bm[x, y] + delta, 0d));
+                }
+            S = S_trackBar.Value;
+
+            //_graphics.Clear(Color.White);
+            HSV_To_RGB(bitmap);
+            _graphics.DrawImage(bitmap, (MainPanel.Height - _BitmapHeight) / 2, (MainPanel.Width - _BitmapWidth) / 2);
         }
     }
 }
